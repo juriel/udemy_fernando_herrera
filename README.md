@@ -1,7 +1,8 @@
 # udemy_fernando_herrera
 
-A new Flutter project.
+Proyecto para seguir el curso de Fernando Herrera.
 
+No seguiré exactamente el curso. 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
