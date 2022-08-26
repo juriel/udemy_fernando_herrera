@@ -5,7 +5,10 @@ class HomePage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return   Scaffold(body: Center(child: Text("Hola Mundo")));
+    return   Scaffold(
+      appBar: AppBar(title: const Text("Curso Udemy")),
+      body: Center(child: Text("Hola Mundo 2"))
+      );
   }
     
 }
