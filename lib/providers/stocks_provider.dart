@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class StockProvider extends ChangeNotifier {
+  List<String> stocks = ["PERRO", "GATO"];
   StockProvider() {
     print("StockProvider");
     getOnLoadStocks();
@@ -15,10 +16,13 @@ class StockProvider extends ChangeNotifier {
     if (response.statusCode == 200) {
       String body = response.body;
       List<dynamic> decoded = json.decode(body);
+      List<String> newStocks = [];
       for (var i = 0; i < decoded.length; i++) {
         print(decoded[i]["stock"]);
+        newStocks.add(decoded[i]["stock"]);
       }
-
+      this.stocks = newStocks;
+      notifyListeners();
       print("------------------------");
     }
   }
