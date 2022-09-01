@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+//import 'package:provider';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
+  final superheroes = ["Superman", "Batman", "Spiderman", "Acuaman"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,13 +13,9 @@ class HomePage extends StatelessWidget {
           elevation: 5.0,
         ),
         body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Fila 1 "),
-            Text("Número de Clicks "),
-            Text("Hola Mundo "),
-          ],
-        )));
+            child: ListView.builder(
+                itemCount: superheroes.length,
+                itemBuilder: (_, index) =>
+                    ListTile(title: Text(superheroes[index])))));
   }
 }

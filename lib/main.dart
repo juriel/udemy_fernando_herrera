@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:udemy_fernando_herrera/screens/home_page.dart';
 
+import 'providers/stocks_provider.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(const AppStateProvider());
+}
+
+class AppStateProvider extends StatelessWidget {
+  const AppStateProvider({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(providers: [
+      ChangeNotifierProvider(create: (ctx) => StockProvider(), lazy: false)
+    ], child: const MyApp());
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -10,9 +24,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
-      home:  HomePage(),
+    return MaterialApp(
+      home: HomePage(),
     );
   }
 }
-
